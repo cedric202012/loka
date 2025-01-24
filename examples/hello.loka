@@ -1,0 +1,24 @@
+# Premier programme en LOKA
+fonction main() {
+    affiche("Bonjour depuis LOKA!")
+}
+
+# Exemple de classe simple
+classe Calculateur {
+    fonction additionner(a, b) {
+        retourne a + b
+    }
+}
+
+# Exemple d'utilisation des structures de contrôle
+fonction exemple() {
+    si (vrai) {
+        affiche("C'est vrai!")
+    } sinon {
+        affiche("C'est faux!")
+    }
+    
+    pour i dans range(5) {
+        affiche(i)
+    }
+}

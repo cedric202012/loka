@@ -1,0 +1,29 @@
+# Exemple d'utilisation de l'IA en LOKA
+importe IA
+
+fonction entrainer_modele(donnees, etiquettes) {
+    modele = IA.nouveau()
+    
+    # Créer un réseau de neurones
+    modele.creer_reseau([100, 50])  # 2 couches cachées
+    
+    # Entraîner le modèle
+    modele.entrainer(donnees, etiquettes)
+    
+    retourne modele
+}
+
+fonction principale() {
+    # Créer des données d'exemple
+    donnees = Matrice.aleatoire([1000, 10])
+    etiquettes = Matrice.aleatoire([1000, 1])
+    
+    # Entraîner le modèle
+    modele = entrainer_modele(donnees, etiquettes)
+    
+    # Faire des prédictions
+    nouvelles_donnees = Matrice.aleatoire([10, 10])
+    predictions = modele.predire(nouvelles_donnees)
+    
+    affiche(predictions)
+}
