@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "loka-lang"
-version = "0.1.5"
+version = "0.2.0"
 description = "Un langage de programmation moderne pour l'IA"
 readme = "README.md"
 authors = [{ name = "LOKA Developer", email = "loka.dev@example.com" }]
