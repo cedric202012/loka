@@ -8,8 +8,11 @@ on:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
-    environment: pypi
+    environment:
+      name: pypi
+      url: https://pypi.org/p/loka-lang
     permissions:
+      contents: read
       id-token: write
 
     steps:
@@ -19,14 +22,21 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: "3.8"
+        cache: pip
     
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install build twine
+        pip install -r requirements.txt
     
     - name: Build package
-      run: python -m build
+      run: |
+        python -m build
+        twine check dist/*
     
     - name: Publish to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        verbose: true
+        print-hash: true
