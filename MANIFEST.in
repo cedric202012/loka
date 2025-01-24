@@ -1,0 +1,6 @@
+include LICENSE
+include README.md
+include CHANGELOG.md
+include requirements.txt
+recursive-include loka *.py
+recursive-include examples *.loka
