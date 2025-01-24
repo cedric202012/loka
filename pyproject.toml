@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "loka-lang"
-version = "0.2.0"
-description = "Un langage de programmation moderne pour l'IA"
+version = "0.3.0"
+description = "Un langage de programmation moderne pour l'IA, créé par ALLE OSSEY ANGE CEDRIC"
 readme = "README.md"
-authors = [{ name = "LOKA Developer", email = "loka.dev@example.com" }]
+authors = [{ name = "ALLE OSSEY ANGE CEDRIC", email = "cedric.alle@example.com" }]
 license = { file = "LICENSE" }
 classifiers = [
     "License :: OSI Approved :: MIT License",
