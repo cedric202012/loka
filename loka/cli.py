@@ -4,6 +4,7 @@ Interface en ligne de commande pour LOKA
 import sys
 from .lexer import Lexer
 from .parser import Parser
+from .interpreter import Interpreteur
 
 def main():
     """Point d'entrée principal de LOKA"""
@@ -13,7 +14,7 @@ def main():
         
     filename = sys.argv[1]
     try:
-        with open(filename, 'r') as f:
+        with open(filename, 'r', encoding='utf-8') as f:
             code = f.read()
             
         # Analyse lexicale
@@ -21,17 +22,21 @@ def main():
         tokens = lexer.tokenize(code)
         
         # Analyse syntaxique
-        parser = Parser(tokens)
-        ast = parser.parse()
+        parser = Parser()
+        ast = parser.parse(tokens)
         
-        # Exécution (à implémenter)
-        print(f"Analyse du fichier {filename} réussie!")
+        # Interprétation
+        interpreteur = Interpreteur()
+        interpreteur.interpreter(ast)
         
     except FileNotFoundError:
-        print(f"Erreur: Le fichier {filename} n'existe pas")
+        print(f"Erreur : Le fichier '{filename}' n'existe pas.")
+        sys.exit(1)
+    except SyntaxError as e:
+        print(f"Erreur de syntaxe : {e}")
         sys.exit(1)
     except Exception as e:
-        print(f"Erreur: {str(e)}")
+        print(f"Erreur : {e}")
         sys.exit(1)
 
 if __name__ == "__main__":
