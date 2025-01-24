@@ -1,0 +1,52 @@
+# Exemple 5 : Traitement et visualisation de données
+# Démonstration des capacités d'analyse de données de LOKA
+
+fonction analyser_ventes(fichier) {
+    # Charger les données
+    donnees = charger_csv(fichier)
+    
+    # Statistiques descriptives
+    stats = donnees.statistiques()
+    affiche("Statistiques des ventes:")
+    affiche("Moyenne: " + stats.moyenne)
+    affiche("Médiane: " + stats.mediane)
+    affiche("Écart-type: " + stats.ecart_type)
+    
+    # Création d'un graphique
+    graphique = Graphique()
+    
+    # Ajouter des données
+    graphique.ajouter_ligne(
+        donnees.dates,
+        donnees.ventes,
+        "Ventes mensuelles"
+    )
+    
+    # Personnaliser le graphique
+    graphique.titre("Analyse des ventes")
+    graphique.axe_x("Date")
+    graphique.axe_y("Ventes (€)")
+    
+    # Ajouter une tendance
+    graphique.ajouter_tendance()
+    
+    # Sauvegarder le graphique
+    graphique.sauvegarder("analyse_ventes.png")
+    
+    # Prédictions
+    modele = RegressionLineaire()
+    modele.entrainer(donnees.dates, donnees.ventes)
+    
+    # Prédire les ventes futures
+    dates_futures = generer_dates_futures(3)  # 3 mois
+    predictions = modele.predire(dates_futures)
+    
+    affiche("Prédictions pour les 3 prochains mois:")
+    pour i dans range(3) {
+        affiche("Mois " + (i+1) + ": " + predictions[i])
+    }
+}
+
+fonction main() {
+    analyser_ventes("donnees/ventes_2024.csv")
+}

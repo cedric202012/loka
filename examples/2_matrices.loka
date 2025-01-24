@@ -1,0 +1,39 @@
+# Exemple 2 : Opérations matricielles en LOKA
+# Démonstration des capacités de calcul matriciel
+
+fonction operations_matrices() {
+    # Création de matrices
+    A = matrice([
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ])
+    
+    B = matrice([
+        [9, 8, 7],
+        [6, 5, 4],
+        [3, 2, 1]
+    ])
+    
+    # Opérations de base
+    affiche("Addition de matrices:")
+    C = A + B
+    affiche(C)
+    
+    affiche("Multiplication de matrices:")
+    D = A * B
+    affiche(D)
+    
+    # Opérations avancées
+    affiche("Transposée de A:")
+    AT = A.transposer()
+    affiche(AT)
+    
+    affiche("Déterminant de A:")
+    det = A.determinant()
+    affiche(det)
+}
+
+fonction main() {
+    operations_matrices()
+}

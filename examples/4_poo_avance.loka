@@ -1,0 +1,70 @@
+# Exemple 4 : Programmation Orientée Objet avancée
+# Démonstration des fonctionnalités POO de LOKA
+
+# Classe de base
+classe Animal {
+    fonction constructeur(nom, age) {
+        this.nom = nom
+        this.age = age
+    }
+    
+    fonction faire_bruit() {
+        affiche("Un animal fait du bruit")
+    }
+    
+    fonction description() {
+        retourne "Animal: " + this.nom + ", Age: " + this.age
+    }
+}
+
+# Héritage
+classe Chat herite Animal {
+    fonction constructeur(nom, age, couleur) {
+        super(nom, age)
+        this.couleur = couleur
+    }
+    
+    fonction faire_bruit() {
+        affiche("Miaou!")
+    }
+    
+    fonction description() {
+        desc = super.description()
+        retourne desc + ", Couleur: " + this.couleur
+    }
+}
+
+# Interface
+interface Jouable {
+    fonction jouer()
+    fonction arreter()
+}
+
+# Implémentation d'interface
+classe ChatJoueur herite Chat implemente Jouable {
+    fonction constructeur(nom, age, couleur) {
+        super(nom, age, couleur)
+        this.en_train_de_jouer = faux
+    }
+    
+    fonction jouer() {
+        this.en_train_de_jouer = vrai
+        affiche(this.nom + " commence à jouer!")
+    }
+    
+    fonction arreter() {
+        this.en_train_de_jouer = faux
+        affiche(this.nom + " arrête de jouer.")
+    }
+}
+
+fonction main() {
+    # Création d'instances
+    chat = ChatJoueur("Felix", 3, "noir")
+    
+    # Utilisation des méthodes
+    affiche(chat.description())
+    chat.faire_bruit()
+    chat.jouer()
+    chat.arreter()
+}

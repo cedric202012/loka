@@ -1,0 +1,31 @@
+# Exemple 1 : Les bases de LOKA
+# Ce fichier montre les concepts fondamentaux du langage
+
+# Fonction simple
+fonction dire_bonjour(nom) {
+    affiche("Bonjour, " + nom + "!")
+}
+
+# Utilisation des conditions
+fonction verifier_age(age) {
+    si age >= 18 {
+        affiche("Vous êtes majeur")
+    } sinon {
+        affiche("Vous êtes mineur")
+    }
+}
+
+# Boucle simple
+fonction compter_jusqua(n) {
+    pour i dans range(1, n + 1) {
+        affiche("Nombre : " + i)
+    }
+}
+
+# Point d'entrée principal
+fonction main() {
+    # Appel des fonctions
+    dire_bonjour("Alice")
+    verifier_age(20)
+    compter_jusqua(5)
+}

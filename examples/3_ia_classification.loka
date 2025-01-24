@@ -1,0 +1,42 @@
+# Exemple 3 : Classification avec apprentissage automatique
+# Démonstration de l'intégration IA dans LOKA
+
+fonction preparer_donnees() {
+    # Charger le jeu de données iris
+    donnees = charger_dataset("iris")
+    
+    # Diviser en ensembles d'entraînement et de test
+    X_train, X_test, y_train, y_test = diviser_donnees(
+        donnees.data, 
+        donnees.target, 
+        test_size=0.2
+    )
+    
+    retourne X_train, X_test, y_train, y_test
+}
+
+fonction entrainer_classifier() {
+    # Préparation des données
+    X_train, X_test, y_train, y_test = preparer_donnees()
+    
+    # Création du modèle
+    modele = ClassifieurIA(type="random_forest")
+    
+    # Entraînement
+    modele.entrainer(X_train, y_train)
+    
+    # Évaluation
+    predictions = modele.predire(X_test)
+    precision = modele.calculer_precision(y_test, predictions)
+    
+    affiche("Précision du modèle : " + precision)
+    
+    # Matrice de confusion
+    matrice = modele.matrice_confusion(y_test, predictions)
+    affiche("Matrice de confusion :")
+    affiche(matrice)
+}
+
+fonction main() {
+    entrainer_classifier()
+}
