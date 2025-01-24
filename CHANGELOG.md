@@ -1,5 +1,14 @@
 # Changelog
 
+## [v0.1.1] - 2025-01-24
+
+### Améliorations
+
+- 🔧 Correction du workflow de publication PyPI
+- ⚙️ Configuration améliorée de GitHub Actions
+- 📦 Support de la publication automatisée
+- 🔐 Sécurité renforcée avec PyPI Trusted Publisher
+
 ## [v0.1.0] - 2025-01-24
 
 Première version de LOKA, un langage de programmation moderne conçu pour l'IA et le machine learning.
@@ -33,4 +42,3 @@ pip install loka-lang
 fonction main() {
     affiche("Bonjour depuis LOKA!")
 }
-```
