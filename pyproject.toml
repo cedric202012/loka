@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loka-lang"
+version = "0.1.1"
+description = "Un langage de programmation moderne pour l'IA"
+readme = "README.md"
+authors = [{ name = "LOKA Developer", email = "loka.dev@example.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["programming-language", "AI", "machine-learning"]
+dependencies = [
+    "llvmlite>=0.40.0",
+    "numpy>=1.21.0",
+    "scikit-learn>=1.0.0",
+]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/cedric202012/loka"
+Repository = "https://github.com/cedric202012/loka.git"
+
+[project.scripts]
+loka = "loka.cli:main"
